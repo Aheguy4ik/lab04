@@ -1,0 +1,36 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-gcc:
+    name: Build with GCC
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ make
+      - name: Configure
+        run: cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+      - name: Build
+        run: cmake --build _build
+      - name: Install
+        run: cmake --build _build --target install
+
+  build-clang:
+    name: Build with Clang
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake clang make
+      - name: Configure
+        run: CC=clang CXX=clang++ cmake -H. -B_build_clang -DCMAKE_INSTALL_PREFIX=_install_clang
+      - name: Build
+        run: cmake --build _build_clang
+      - name: Install
+        run: cmake --build _build_clang --target install

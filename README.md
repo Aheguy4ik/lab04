@@ -1,5 +1,7 @@
 ##Homework III
 
+![C++ CI](https://github.com/Aheguy4ik/lab04/actions/workflows/ci.yml/badge.svg)
+
 0. Подготовка репозитория: 
 ```sh 
 git clone https://github.com/<username>/lab03.git
