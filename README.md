@@ -1,6 +1,5 @@
 ##Homework III
 
-![C++ CI](https://github.com/Aheguy4ik/lab04/actions/workflows/ci.yml/badge.svg)
 
 0. Подготовка репозитория: 
 ```sh 
